@@ -1,0 +1,59 @@
+Collecting tensorflowjs
+  Downloading tensorflowjs-4.16.0-py3-none-any.whl (89 kB)
+     -------------------------------------- 89.2/89.2 kB 839.7 kB/s eta 0:00:00
+Requirement already satisfied: six<2,>=1.16.0 in c:\users\acer\miniconda2\envs\waste\lib\site-packages (from tensorflowjs) (1.16.0)
+  Downloading tensorflowjs-4.15.0-py3-none-any.whl (89 kB)
+     ---------------------------------------- 89.2/89.2 kB 4.9 MB/s eta 0:00:00
+  Downloading tensorflowjs-4.14.0-py3-none-any.whl (89 kB)
+     ---------------------------------------- 89.2/89.2 kB 4.9 MB/s eta 0:00:00
+  Downloading tensorflowjs-4.13.0-py3-none-any.whl (89 kB)
+     ---------------------------------------- 89.2/89.2 kB 4.9 MB/s eta 0:00:00
+  Downloading tensorflowjs-4.12.0-py3-none-any.whl (89 kB)
+     ---------------------------------------- 89.2/89.2 kB 4.9 MB/s eta 0:00:00
+  Downloading tensorflowjs-4.11.0-py3-none-any.whl (89 kB)
+     ---------------------------------------- 89.2/89.2 kB 4.9 MB/s eta 0:00:00
+  Downloading tensorflowjs-4.10.0-py3-none-any.whl (89 kB)
+     ---------------------------------------- 89.2/89.2 kB 4.9 MB/s eta 0:00:00
+  Downloading tensorflowjs-4.9.0-py3-none-any.whl (89 kB)
+     ---------------------------------------- 89.0/89.0 kB 5.3 MB/s eta 0:00:00
+  Downloading tensorflowjs-4.8.0-py3-none-any.whl (85 kB)
+     ---------------------------------------- 85.1/85.1 kB 5.0 MB/s eta 0:00:00
+  Downloading tensorflowjs-4.7.0-py3-none-any.whl (85 kB)
+     ---------------------------------------- 85.1/85.1 kB 5.0 MB/s eta 0:00:00
+  Downloading tensorflowjs-4.6.0-py3-none-any.whl (85 kB)
+     ---------------------------------------- 85.1/85.1 kB 4.7 MB/s eta 0:00:00
+  Downloading tensorflowjs-4.5.0-py3-none-any.whl (85 kB)
+     ---------------------------------------- 85.1/85.1 kB 4.7 MB/s eta 0:00:00
+  Downloading tensorflowjs-4.4.0-py3-none-any.whl (85 kB)
+     ---------------------------------------- 85.1/85.1 kB 5.0 MB/s eta 0:00:00
+Collecting packaging~=20.9
+  Downloading packaging-20.9-py2.py3-none-any.whl (40 kB)
+     ---------------------------------------- 40.9/40.9 kB ? eta 0:00:00
+Collecting tensorflow-hub<0.13,>=0.7.0
+  Downloading tensorflow_hub-0.12.0-py2.py3-none-any.whl (108 kB)
+     -------------------------------------- 108.8/108.8 kB 6.6 MB/s eta 0:00:00
+Collecting flax>=0.6.2
+  Downloading flax-0.7.2-py3-none-any.whl (226 kB)
+     -------------------------------------- 226.6/226.6 kB 4.7 MB/s eta 0:00:00
+Collecting tensorflow<3,>=2.10.0
+  Downloading tensorflow-2.11.0-cp37-cp37m-win_amd64.whl (1.9 kB)
+Collecting tensorflowjs
+  Downloading tensorflowjs-4.3.0-py3-none-any.whl (85 kB)
+     ---------------------------------------- 85.1/85.1 kB 5.0 MB/s eta 0:00:00
+  Downloading tensorflowjs-4.2.0-py3-none-any.whl (84 kB)
+     ---------------------------------------- 84.5/84.5 kB 4.6 MB/s eta 0:00:00
+  Downloading tensorflowjs-4.1.0-py3-none-any.whl (84 kB)
+     ---------------------------------------- 84.2/84.2 kB 4.6 MB/s eta 0:00:00
+  Downloading tensorflowjs-4.0.0-py3-none-any.whl (83 kB)
+     ---------------------------------------- 83.7/83.7 kB 4.9 MB/s eta 0:00:00
+  Downloading tensorflowjs-3.21.0-py3-none-any.whl (81 kB)
+     ---------------------------------------- 81.2/81.2 kB 4.4 MB/s eta 0:00:00
+Requirement already satisfied: importlib_resources>=5.9.0 in c:\users\acer\miniconda2\envs\waste\lib\site-packages (from tensorflowjs) (5.12.0)
+Collecting protobuf<3.20,>=3.9.2
+  Downloading protobuf-3.19.6-cp37-cp37m-win_amd64.whl (896 kB)
+     -------------------------------------- 896.6/896.6 kB 1.1 MB/s eta 0:00:00
+Collecting jax>=0.3.16
+  Downloading jax-0.3.25.tar.gz (1.1 MB)
+     ---------------------------------------- 1.1/1.1 MB 2.8 MB/s eta 0:00:00
+  Preparing metadata (setup.py): started
+  Preparing metadata (setup.py): finished with status 'error'

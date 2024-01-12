@@ -1,0 +1,2 @@
+Requirement already satisfied: torch in c:\users\acer\miniconda2\envs\waste\lib\site-packages (1.13.1)
+Requirement already satisfied: typing-extensions in c:\users\acer\miniconda2\envs\waste\lib\site-packages (from torch) (4.7.1)

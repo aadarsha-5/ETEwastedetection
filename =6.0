@@ -1,0 +1,5 @@
+Collecting coremltools
+  Downloading coremltools-7.1.tar.gz (1.2 MB)
+     ---------------------------------------- 1.2/1.2 MB 1.7 MB/s eta 0:00:00
+  Preparing metadata (setup.py): started
+  Preparing metadata (setup.py): finished with status 'error'
