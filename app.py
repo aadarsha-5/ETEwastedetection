@@ -1,5 +1,4 @@
-from wasteDectection.logger import logging
-from wasteDectection.exception import AppException
-import sys
+from wasteDectection.pipeline.training_pipeline import TrainPipeline
 
-logging.info("Welcome to my custom log")
+obj = TrainPipeline()
+obj.run_pipeline()
