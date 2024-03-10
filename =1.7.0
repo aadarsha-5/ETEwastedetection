@@ -1,2 +1,3 @@
-Requirement already satisfied: torch in c:\users\acer\miniconda2\envs\waste\lib\site-packages (1.13.1)
-Requirement already satisfied: typing-extensions in c:\users\acer\miniconda2\envs\waste\lib\site-packages (from torch) (4.7.1)
+Looking in indexes: https://pypi.org/simple, https://pypi.ngc.nvidia.com
+Requirement already satisfied: torch in c:\users\acer\miniconda2\envs\wastee\lib\site-packages (1.13.1)
+Requirement already satisfied: typing-extensions in c:\users\acer\miniconda2\envs\wastee\lib\site-packages (from torch) (4.7.1)

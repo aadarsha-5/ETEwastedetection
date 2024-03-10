@@ -1,13 +1,6 @@
-Collecting requests
-  Using cached requests-2.31.0-py3-none-any.whl (62 kB)
-Requirement already satisfied: certifi>=2017.4.17 in c:\users\acer\miniconda2\envs\waste\lib\site-packages (from requests) (2022.12.7)
-Collecting urllib3<3,>=1.21.1
-  Downloading urllib3-2.0.7-py3-none-any.whl (124 kB)
-     ------------------------------------ 124.2/124.2 kB 270.1 kB/s eta 0:00:00
-Collecting charset-normalizer<4,>=2
-  Downloading charset_normalizer-3.3.2-cp37-cp37m-win_amd64.whl (98 kB)
-     -------------------------------------- 98.1/98.1 kB 806.3 kB/s eta 0:00:00
-Collecting idna<4,>=2.5
-  Using cached idna-3.6-py3-none-any.whl (61 kB)
-Installing collected packages: urllib3, idna, charset-normalizer, requests
-Successfully installed charset-normalizer-3.3.2 idna-3.6 requests-2.31.0 urllib3-2.0.7
+Looking in indexes: https://pypi.org/simple, https://pypi.ngc.nvidia.com
+Requirement already satisfied: requests in c:\users\acer\miniconda2\envs\wastee\lib\site-packages (2.31.0)
+Requirement already satisfied: charset-normalizer<4,>=2 in c:\users\acer\miniconda2\envs\wastee\lib\site-packages (from requests) (3.3.2)
+Requirement already satisfied: idna<4,>=2.5 in c:\users\acer\miniconda2\envs\wastee\lib\site-packages (from requests) (3.6)
+Requirement already satisfied: urllib3<3,>=1.21.1 in c:\users\acer\miniconda2\envs\wastee\lib\site-packages (from requests) (2.0.7)
+Requirement already satisfied: certifi>=2017.4.17 in c:\users\acer\miniconda2\envs\wastee\lib\site-packages (from requests) (2023.11.17)

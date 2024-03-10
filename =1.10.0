@@ -1,8 +1,16 @@
+Looking in indexes: https://pypi.org/simple, https://pypi.ngc.nvidia.com
 Collecting onnx
-  Downloading onnx-1.14.1-cp37-cp37m-win_amd64.whl (13.3 MB)
-     ---------------------------------------- 13.3/13.3 MB 2.0 MB/s eta 0:00:00
-Requirement already satisfied: protobuf>=3.20.2 in c:\users\acer\miniconda2\envs\waste\lib\site-packages (from onnx) (3.20.3)
-Requirement already satisfied: numpy in c:\users\acer\miniconda2\envs\waste\lib\site-packages (from onnx) (1.21.6)
-Requirement already satisfied: typing-extensions>=3.6.2.1 in c:\users\acer\miniconda2\envs\waste\lib\site-packages (from onnx) (4.7.1)
-Installing collected packages: onnx
-Successfully installed onnx-1.14.1
+  Downloading onnx-1.15.0-cp38-cp38-win_amd64.whl.metadata (15 kB)
+Requirement already satisfied: numpy in c:\users\acer\miniconda2\envs\wastee\lib\site-packages (from onnx) (1.24.4)
+Collecting protobuf>=3.20.2 (from onnx)
+  Downloading protobuf-4.25.2-cp38-cp38-win_amd64.whl.metadata (541 bytes)
+Downloading onnx-1.15.0-cp38-cp38-win_amd64.whl (14.3 MB)
+   ---------------------------------------- 14.3/14.3 MB 2.1 MB/s eta 0:00:00
+Downloading protobuf-4.25.2-cp38-cp38-win_amd64.whl (413 kB)
+   ---------------------------------------- 413.4/413.4 kB 2.4 MB/s eta 0:00:00
+Installing collected packages: protobuf, onnx
+  Attempting uninstall: protobuf
+    Found existing installation: protobuf 3.19.6
+    Uninstalling protobuf-3.19.6:
+      Successfully uninstalled protobuf-3.19.6
+Successfully installed onnx-1.15.0 protobuf-4.25.2

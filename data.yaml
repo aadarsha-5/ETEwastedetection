@@ -1,0 +1,7 @@
+train: ../train/images
+val: ../valid/images
+
+
+nc: 13
+names: ['Banana(Biodegradable)', 'Chilli(Biodegradable)', 'DrinkCan(Nonbiodegradable)', 'DrinkPack(Nonbiodegradable)', 'FoodCan(Nonbiodegradable)', 'Lettuce(Biodegradable)', 'PaperBag(Biodegradable)', 'PlasticBag(Nonbiodegradable)', 'PlasticBottle(Nonbiodegradable)', 'PlasticContainer(Nonbiodegradable)', 'SweetPotato(Biodegradable)', 'TeaBag(Biodegradable)', 'TissueRoll(Biodegradable)']
+

@@ -1,6 +1,3 @@
-Collecting tqdm
-  Using cached tqdm-4.66.1-py3-none-any.whl (78 kB)
-Collecting colorama
-  Using cached colorama-0.4.6-py2.py3-none-any.whl (25 kB)
-Installing collected packages: colorama, tqdm
-Successfully installed colorama-0.4.6 tqdm-4.66.1
+Looking in indexes: https://pypi.org/simple, https://pypi.ngc.nvidia.com
+Requirement already satisfied: tqdm in c:\users\acer\miniconda2\envs\wastee\lib\site-packages (4.66.1)
+Requirement already satisfied: colorama in c:\users\acer\miniconda2\envs\wastee\lib\site-packages (from tqdm) (0.4.6)

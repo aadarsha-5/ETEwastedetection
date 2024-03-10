@@ -3,20 +3,23 @@ from wasteDectection.logger import logging
 from wasteDectection.exception import AppException
 from wasteDectection.components.data_ingestion import DataIngestion
 from wasteDectection.components.data_validation import DataValidation
-#from wasteDectection.components.model_trainer import ModelTrainer
+from wasteDectection.components.model_trainer import ModelTrainer
 
 
 from wasteDectection.entity.config_entity import (DataIngestionConfig,
-                                                  DataValidationConfig)
+                                                 DataValidationConfig,
+                                                 ModelTrainerConfig)
 
-from wasteDectection.entity.artifacts_entity import (DataIngestionArtifact,DataValidationArtifact)
+from wasteDectection.entity.artifacts_entity import (DataIngestionArtifact,
+                                                    DataValidationArtifact,
+                                                    ModelTrainerArtifact)
 
 
 class TrainPipeline:
     def __init__(self):
         self.data_ingestion_config = DataIngestionConfig()
         self.data_validation_config = DataValidationConfig()
-        #self.model_trainer_config = ModelTrainerConfig()
+        self.model_trainer_config = ModelTrainerConfig()
 
 
     
@@ -44,7 +47,6 @@ class TrainPipeline:
         
 
 
-
     
     def start_data_validation(
         self, data_ingestion_artifact: DataIngestionArtifact
@@ -69,28 +71,9 @@ class TrainPipeline:
 
         except Exception as e:
             raise AppException(e, sys) from e
-        
-    def run_pipeline(self) -> None:
-        try:
-            data_ingestion_artifact = self.start_data_ingestion()
-            data_validation_artifact = self.start_data_validation(
-                data_ingestion_artifact=data_ingestion_artifact
-            )
-
-            """
-            if data_validation_artifact.validation_status == True:
-                model_trainer_artifact = self.start_model_trainer()
-            
-            else:
-                raise Exception("Your data is not in correct format")
-             """
-        
-        except Exception as e:
-            raise AppException(e, sys)
-        
 
 
-    """
+
     
     def start_model_trainer(self
     ) -> ModelTrainerArtifact:
@@ -107,7 +90,23 @@ class TrainPipeline:
         
 
         
-   """
+
     
 
+    def run_pipeline(self) -> None:
+        try:
+            data_ingestion_artifact = self.start_data_ingestion()
+            data_validation_artifact = self.start_data_validation(
+                data_ingestion_artifact=data_ingestion_artifact
+            )
+
+            if data_validation_artifact.validation_status == True:
+                model_trainer_artifact = self.start_model_trainer()
+            
+            else:
+                raise Exception("Your data is not in correct format")
+
+        
+        except Exception as e:
+            raise AppException(e, sys)
     
