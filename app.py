@@ -2,7 +2,6 @@ import sys
 import os
 from flask import Flask, request, jsonify, render_template, Response
 from flask_cors import CORS, cross_origin
-import serial
 
 from wasteDectection.pipeline.training_pipeline import TrainPipeline
 from wasteDectection.utils.main_utils import decodeImage, encodeImageIntoBase64
@@ -14,13 +13,6 @@ CORS(app)
 class ClientApp:
     def __init__(self):
         self.filename = "inputImage.jpg"
-
-arduino_communication = serial.Serial('COM5', 9600, timeout=1)  # Replace 'COM1' with your Arduino's serial port
-
-def send_command_with_ack(command):
-    arduino_communication.write(command.encode())  # Send command to Arduino
-    response = arduino_communication.readline().strip()  # Read response from Arduino
-    return response == b'ACK'  # Check for acknowledgment
 
 @app.route("/train")
 def trainRoute():
@@ -36,7 +28,10 @@ def home():
 @cross_origin()
 def predictRoute():
     try:
-        image = request.json['image']
+        image = request.json.get('image')
+        if not image:
+            return Response("No image data found", status=400)
+
         decodeImage(image, clApp.filename)
 
         os.system("cd yolov5/ && python detect.py --weights beast.pt --img 416 --conf 0.5 --source ../data/inputImage.jpg")
@@ -49,35 +44,14 @@ def predictRoute():
         with open("yolov5/runs/detect/exp/output.txt", "r") as file:
             detected_objects = file.read()
 
-        # Determine whether to send the signal based on detected objects
-        if "Biodegradable" in detected_objects:
-            command = "B"  # Signal to send for biodegradable objects
-            message = "Biodegradable object detected"
-        elif "Nonbiodegradable" in detected_objects:
-            command = "N"  # Signal to send for non-biodegradable objects
-            message = "Non-biodegradable object detected"
-        else:
-            command = "U"  # Signal to send for unknown objects
-            message = "Unknown object detected"
+        # Prepare result message based on detected objects
+        result_message = "Objects detected: " + detected_objects
 
-        # Send command to Arduino with acknowledgment
-        success = send_command_with_ack(command)
+        return jsonify(result_message)
 
-        if success:
-            print(f"{message} - Signal sent: {command}")
-            return jsonify(result)
-        else:
-            return Response("Failed to receive acknowledgment from Arduino")
-
-    except ValueError as val:
-        print(val)
-        return Response("Value not found inside json data")
-    except KeyError:
-        return Response("Key value error incorrect key passed")
     except Exception as e:
         print(e)
-        result = "Invalid input"
-        return jsonify(result)
+        return Response("An error occurred while processing the request", status=500)
 
 @app.route("/live", methods=['GET'])
 @cross_origin()
@@ -91,33 +65,16 @@ def predictLive():
         with open("yolov5/runs/detect/exp/output.txt", "r") as file:
             detected_objects = file.read()
 
-        # Determine whether to send the signal based on detected objects
-        if "Biodegradable" in detected_objects:
-            command = "B"  # Signal to send for biodegradable objects
-            message = "Biodegradable object detected"
-        elif "Nonbiodegradable" in detected_objects:
-            command = "N"  # Signal to send for non-biodegradable objects
-            message = "Non-biodegradable object detected"
-        else:
-            command = "U"  # Signal to send for unknown objects
-            message = "Unknown object detected"
+        # Prepare result message based on detected objects
+        result_message = "Objects detected: " + detected_objects
 
-        # Send command to Arduino with acknowledgment
-        success = send_command_with_ack(command)
+        return jsonify(result_message)
 
-        if success:
-            print(f"{message} - Signal sent: {command}")
-            return "Camera starting!!"
-        else:
-            return Response("Failed to receive acknowledgment from Arduino")
-
-    except ValueError as val:
-        print(val)
-        return Response("Value not found inside json data")
     except Exception as e:
         print(e)
-        return Response("Error during live detection and sending command to Arduino")
+        return Response("An error occurred while processing the request", status=500)
 
 if __name__ == "__main__":
     clApp = ClientApp()
     app.run(host=APP_HOST, port=APP_PORT)
+

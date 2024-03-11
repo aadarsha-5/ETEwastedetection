@@ -102,9 +102,6 @@ def run(
     vid_stride=1,  # video frame-rate stride
     detection_delay=1
 ):
-    arduino_port = 'COM4'  # Adjust this port based on your Arduino's port
-    arduino_baudrate = 9600  # Adjust the baudrate if needed
-    ser = serial.Serial(arduino_port, arduino_baudrate, timeout=1)
     source = str(source)
     save_img = not nosave and not source.endswith(".txt")  # save inference images
     is_file = Path(source).suffix[1:] in (IMG_FORMATS + VID_FORMATS)
@@ -231,11 +228,11 @@ def run(
                         save_one_box(xyxy, imc, file=save_dir / "crops" / names[c] / f"{p.stem}.jpg", BGR=True)
 
                 # Determine the command to send to Arduino based on detected objects
-                command = 'U'
+                command = None
                 for *xyxy, conf, cls in reversed(det):  # per detected object
                     class_id = int(cls)
                     if names[class_id] in ['Banana(Biodegradable)', 'Chilli(Biodegradable)', 'Lettuce(Biodegradable)', 'PaperBag(Biodegradable)', 'SweetPotato(Biodegradable)', 'TeaBag(Biodegradable)', 'TissueRoll(Biodegradable)']:
-                        command = 'B'  # Signal to send for biodegradable objects
+                        command = "B"  # Signal to send for biodegradable objects
                         break
                     elif names[class_id] in ['DrinkCan(Nonbiodegradable)', 'DrinkPack(Nonbiodegradable)', 'FoodCan(Nonbiodegradable)', 'PlasticBag(Nonbiodegradable)', 'PlasticBottle(Nonbiodegradable)', 'PlasticContainer(Nonbiodegradable)']:
                         command = "N"  # Signal to send for non-biodegradable objects
@@ -244,12 +241,16 @@ def run(
                         command = "U"  # Signal to send for unknown objects
 
                 # Send command to Arduino
-                command = command.encode('utf-8')
-                try:
-                    nbytes = ser.write(command)  # Send the command as bytes
-                    print(f"{command=}, {nbytes=} sent to Arduino")
-                except serial.SerialException as e:
-                    print(f"Error: {e}. Failed to communicate with Arduino.")
+                if command is not None:
+                    command = command.encode('utf-8')
+                    arduino_port = 'COM4'  # Adjust this port based on your Arduino's port
+                    arduino_baudrate = 9600  # Adjust the baudrate if needed
+                    try:
+                        with serial.Serial(arduino_port, arduino_baudrate, timeout=1) as ser:
+                            nbytes = ser.write(command)  # Send the command as bytes
+                            print(f"{command=}, {nbytes=} sent to Arduino")
+                    except serial.SerialException as e:
+                        print(f"Error: {e}. Failed to communicate with Arduino.")
 
             # adjust delay
             time.sleep(detection_delay)
